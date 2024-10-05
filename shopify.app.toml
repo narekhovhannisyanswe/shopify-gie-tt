@@ -1,0 +1,44 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "83b62e804b93d7e2eabc6e37382df911"
+name = "gie-tech-task"
+handle = "gie-tech-task-1"
+application_url = "https://telescope-dale-liked-promptly.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "gie-tech-task.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [
+  "https://telescope-dale-liked-promptly.trycloudflare.com/auth/callback",
+  "https://telescope-dale-liked-promptly.trycloudflare.com/auth/shopify/callback",
+  "https://telescope-dale-liked-promptly.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/customers/data_request"
+  compliance_topics = [ "customers/data_request" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/customers/redact"
+  compliance_topics = [ "customers/redact" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/shop/redact"
+  compliance_topics = [ "shop/redact" ]
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false

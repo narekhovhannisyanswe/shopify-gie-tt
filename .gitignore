@@ -13,9 +13,8 @@ database.sqlite
 .env
 .env.*
 
-
-
-
+.idea
+.vscode
 
 /extensions/*/dist
 

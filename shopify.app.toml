@@ -3,7 +3,7 @@
 client_id = "83b62e804b93d7e2eabc6e37382df911"
 name = "gie-tech-task"
 handle = "gie-tech-task-1"
-application_url = "https://except-wires-brooks-precise.trycloudflare.com"
+application_url = "https://diet-horror-isle-naples.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://except-wires-brooks-precise.trycloudflare.com/auth/callback",
-  "https://except-wires-brooks-precise.trycloudflare.com/auth/shopify/callback",
-  "https://except-wires-brooks-precise.trycloudflare.com/api/auth/callback"
+  "https://diet-horror-isle-naples.trycloudflare.com/auth/callback",
+  "https://diet-horror-isle-naples.trycloudflare.com/auth/shopify/callback",
+  "https://diet-horror-isle-naples.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import {
   BlockStack,
   Box,
@@ -14,22 +12,9 @@ import {
 } from '@shopify/polaris';
 import { ExternalIcon } from '@shopify/polaris-icons';
 
-import { COMPLETED_TASKS_INITIAL_COUNT, NUMBER_OF_TASKS } from '../../constants/welcome.js';
+import { NUMBER_OF_TASKS } from '../../constants/welcome.js';
 
-export default function SetupGuide() {
-  // const [isTemplateCreated, setIsTemplateCreated] = useState(false);
-  // const [isProductGroupCreated, setIsProductGroupCreated] = useState(false);
-  // const [isEmbeddingEnabled, setIsEmbeddingEnabled] = useState(false);
-
-  const [progress, setProgress] = useState(COMPLETED_TASKS_INITIAL_COUNT);
-
-  // const SECTIONS = {
-  //   TEMPLATE: "template",
-  //   PRODUCT_GROUP: "product group",
-  //   EMBEDDING: "embedding",
-  // };
-  // const [activeSection, setActiveSection] = useState(SECTIONS.TEMPLATE);
-
+export default function SetupGuide({ progress = 0 }) {
   return (
     <Card>
       <BlockStack gap="400">
@@ -43,16 +28,23 @@ export default function SetupGuide() {
               {progress} / {NUMBER_OF_TASKS}
             </Text>
             <div style={{ width: 150 }}>
-              <ProgressBar progress={progress} size="small" />
+              <ProgressBar progress={(progress / NUMBER_OF_TASKS) * 100} size="small" />
             </div>
           </InlineStack>
         </Box>
-        <Collapsible id="product-group" open={true} marginTop="400">
+        <Collapsible id="create-template" open={true}>
+          <Box background="bg-surface-secondary" padding="400" borderRadius="200">
+            <Text as="h3" fontWeight="bold">
+              Create Template
+            </Text>
+          </Box>
+        </Collapsible>
+        <Collapsible id="product-group" open={true}>
           <Box background="bg-surface-secondary" padding="400" borderRadius="200">
             <InlineStack align="space-between">
               <BlockStack gap="300" inlineAlign="start">
                 <Text as="h3" fontWeight="bold">
-                  Create Template
+                  Create Product Group
                 </Text>
                 <Button variant="primary" url="https://polaris.shopify.com/" external>
                   Polaris docs

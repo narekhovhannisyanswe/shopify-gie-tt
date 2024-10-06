@@ -10,11 +10,17 @@ import {
   Text,
   Thumbnail,
 } from '@shopify/polaris';
-import { ExternalIcon } from '@shopify/polaris-icons';
+import { ExternalIcon, CheckCircleIcon, MinusCircleIcon } from '@shopify/polaris-icons';
 
 import { NUMBER_OF_TASKS } from '../../constants/welcome.js';
 
-export default function SetupGuide({ progress = 0 }) {
+export default function SetupGuide({
+  isGroupEmpty,
+  onCreateProductGroup,
+  isEmbedEnabled,
+  onToggleEmbedEnabled,
+  progress,
+}) {
   return (
     <Card>
       <BlockStack gap="400">
@@ -32,46 +38,43 @@ export default function SetupGuide({ progress = 0 }) {
             </div>
           </InlineStack>
         </Box>
-        <Collapsible id="create-template" open={true}>
-          <Box background="bg-surface-secondary" padding="400" borderRadius="200">
-            <Text as="h3" fontWeight="bold">
-              Create Template
-            </Text>
-          </Box>
-        </Collapsible>
-        <Collapsible id="product-group" open={true}>
-          <Box background="bg-surface-secondary" padding="400" borderRadius="200">
+
+        <Box background="bg-surface-secondary" padding="400" borderRadius="200">
+          <BlockStack gap="300">
+            <InlineStack gap="200" blockAlign="center">
+              <Button icon={isGroupEmpty ? MinusCircleIcon : CheckCircleIcon} />
+              <Text as="h3" fontWeight="bold">
+                Create Product Group
+              </Text>
+            </InlineStack>
             <InlineStack align="space-between">
-              <BlockStack gap="300" inlineAlign="start">
-                <Text as="h3" fontWeight="bold">
-                  Create Product Group
-                </Text>
-                <Button variant="primary" url="https://polaris.shopify.com/" external>
-                  Polaris docs
+              <BlockStack>
+                <Button onClick={onCreateProductGroup} variant="primary">
+                  Create product group
                 </Button>
               </BlockStack>
               <Thumbnail
-                alt="enable app"
+                alt="product group"
                 source="https://www.charle.co.uk/articles/shopify-pricing/images/reporting.png"
               />
             </InlineStack>
-          </Box>
-        </Collapsible>
-        <Collapsible id="app-embed" open={true}>
-          <Box background="bg-surface-secondary" padding="400" borderRadius="200">
+          </BlockStack>
+        </Box>
+
+        <Box background="bg-surface-secondary" padding="400" borderRadius="200">
+          <BlockStack gap="300">
+            <InlineStack gap="200" blockAlign="center">
+              <Button icon={isEmbedEnabled ? CheckCircleIcon : MinusCircleIcon} />
+              <Text as="h3" fontWeight="bold">
+                Enable app embedded
+              </Text>
+            </InlineStack>
             <InlineStack align="space-between">
               <BlockStack gap="300" inlineAlign="start">
-                <Text as="h3" fontWeight="bold">
-                  Enable app embedded
-                </Text>
                 <Text as="p">To display options on your Online Store, you must enable app embed in your theme.</Text>
                 <InlineStack gap="400">
-                  <Button
-                    variant="primary"
-                    icon={ExternalIcon}
-                    url="https://example.myshopify.com/admin/settings/apps/embed/app_id"
-                    external>
-                    Enable app embed
+                  <Button onClick={onToggleEmbedEnabled} variant="primary" icon={ExternalIcon}>
+                    {isEmbedEnabled ? 'Disable' : 'Enable'} app embed
                   </Button>
                   <Link removeUnderline>
                     <Text as="span" fontWeight="semibold" tone="subdued">
@@ -86,8 +89,8 @@ export default function SetupGuide({ progress = 0 }) {
                 source="https://www.charle.co.uk/articles/shopify-pricing/images/reporting.png"
               />
             </InlineStack>
-          </Box>
-        </Collapsible>
+          </BlockStack>
+        </Box>
       </BlockStack>
     </Card>
   );

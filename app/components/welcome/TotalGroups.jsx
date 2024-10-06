@@ -1,6 +1,6 @@
 import { BlockStack, Card, Link, Text } from '@shopify/polaris';
 
-export default function TotalGroups({ groupsCount = 0 }) {
+export default function TotalGroups({ productGroupsCount = 0 }) {
   return (
     <Card>
       <BlockStack gap="300">
@@ -9,7 +9,7 @@ export default function TotalGroups({ groupsCount = 0 }) {
         </Text>
         <Text as="h4">
           <Text as="span" variant="headingLg" fontWeight="bold">
-            {groupsCount}{' '}
+            {productGroupsCount}{' '}
           </Text>
           / Unlimited groups
         </Text>

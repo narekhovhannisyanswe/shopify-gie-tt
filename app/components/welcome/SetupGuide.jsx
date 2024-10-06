@@ -1,18 +1,9 @@
-import {
-  BlockStack,
-  Box,
-  Button,
-  Card,
-  Collapsible,
-  InlineStack,
-  Link,
-  ProgressBar,
-  Text,
-  Thumbnail,
-} from '@shopify/polaris';
-import { ExternalIcon, CheckCircleIcon, MinusCircleIcon } from '@shopify/polaris-icons';
+import { BlockStack, Box, Button, Card, Icon, InlineStack, Link, ProgressBar, Text, Thumbnail } from '@shopify/polaris';
+import { ExternalIcon, CheckCircleIcon } from '@shopify/polaris-icons';
 
-import { NUMBER_OF_TASKS } from '../../constants/welcome.js';
+import CycleEmptyDashed from '../ui/CycleEmptyDashed';
+
+import { NUMBER_OF_TASKS } from '../../constants/welcome';
 
 export default function SetupGuide({
   isGroupEmpty,
@@ -42,7 +33,7 @@ export default function SetupGuide({
         <Box background="bg-surface-secondary" padding="400" borderRadius="200">
           <BlockStack gap="300">
             <InlineStack gap="200" blockAlign="center">
-              <Button icon={isGroupEmpty ? MinusCircleIcon : CheckCircleIcon} />
+              <span>{isGroupEmpty ? <CycleEmptyDashed /> : <Icon source={CheckCircleIcon} />}</span>
               <Text as="h3" fontWeight="bold">
                 Create Product Group
               </Text>
@@ -64,7 +55,7 @@ export default function SetupGuide({
         <Box background="bg-surface-secondary" padding="400" borderRadius="200">
           <BlockStack gap="300">
             <InlineStack gap="200" blockAlign="center">
-              <Button icon={isEmbedEnabled ? CheckCircleIcon : MinusCircleIcon} />
+              <span>{isEmbedEnabled ? <Icon source={CheckCircleIcon} /> : <CycleEmptyDashed />}</span>
               <Text as="h3" fontWeight="bold">
                 Enable app embedded
               </Text>

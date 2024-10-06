@@ -3,7 +3,7 @@
 client_id = "83b62e804b93d7e2eabc6e37382df911"
 name = "gie-tech-task"
 handle = "gie-tech-task-1"
-application_url = "https://nevada-workflow-donald-circle.trycloudflare.com"
+application_url = "https://spin-wonder-reviewer-psychological.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://nevada-workflow-donald-circle.trycloudflare.com/auth/callback",
-  "https://nevada-workflow-donald-circle.trycloudflare.com/auth/shopify/callback",
-  "https://nevada-workflow-donald-circle.trycloudflare.com/api/auth/callback"
+  "https://spin-wonder-reviewer-psychological.trycloudflare.com/auth/callback",
+  "https://spin-wonder-reviewer-psychological.trycloudflare.com/auth/shopify/callback",
+  "https://spin-wonder-reviewer-psychological.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

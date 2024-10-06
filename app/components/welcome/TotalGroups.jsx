@@ -1,4 +1,4 @@
-import { BlockStack, Card, Link, Text } from '@shopify/polaris';
+import { BlockStack, Card, Text } from '@shopify/polaris';
 
 export default function TotalGroups({ productGroupsCount = 0 }) {
   return (
@@ -13,9 +13,6 @@ export default function TotalGroups({ productGroupsCount = 0 }) {
           </Text>
           / Unlimited groups
         </Text>
-        <BlockStack inlineAlign="end">
-          <Link>View settings</Link>
-        </BlockStack>
       </BlockStack>
     </Card>
   );
